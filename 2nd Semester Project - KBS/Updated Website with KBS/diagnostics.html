@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<title>CampusNet Staff - Resources & Tools</title>
+    	<!-- loading le css -->
+    	<link href="assets/css/bootstrap.css" rel="stylesheet">
+    	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  	</head>
+
+  	<body>
+  		<!-- NAVBAR  -->
+    	<div class="navbar">
+      		<div class="navbar-inner">
+        		<div class="container-fluid">
+          			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+          			</a>
+          			<a class="brand" href="index.html">CampusNet Staff</a>
+          			<div class="nav-collapse collapse">
+            			<p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Username</a></p>
+            			<ul class="nav">
+            				
+              				<li><a href="about.html">About</a></li>
+              				<li><a href="contact.html">Contact</a></li>
+              				<li><a href="resources.html">Resources & Tools</a></li>
+        					<li><a href="glossary.html">Glossary</a></li>
+          					<li><a href="office.html">Office Procedures</a></li>
+          					<li class="active"><a href="diagnostics.html">Diagnostics</a></li>
+            			</ul>
+          			</div>
+        		</div><!--/container-->
+      		</div>
+		</div>
+		<!-- MAIN -->
+        </div><!--/span-->
+       
+          <div class="hero-unit">
+			<h2> </h2>
+			<style type="text/css">
+.container {
+	border:1px solid #ccc; 
+	background-color:#FFFFFF; 
+	padding:0.5em;
+	margin-top:1em;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+}
+
+#question {
+	margin:0.3em 0 0.3em; 
+	font-family:Verdana, Geneva, sans-serif; 
+	font-size:110%; 
+} 
+
+.answers {
+	margin:0.5em 0 0.5em 1em; 
+	font-family:Verdana, Geneva, sans-serif; 
+}
+li {
+	padding:0.2em;
+	list-style-image:url(bullet_orange.png)
+} 
+li:hover {
+	cursor:pointer; 
+	background-color:#006;
+	color:#eee; 
+} 
+
+#showquestion p {
+	font-weight:bold;
+	margin-top:0px; 
+} 
+
+#showquestion div {
+	margin:0.5em; 
+	padding:0.5em; 
+	border:1px solid #aaa; 
+	background-color:#FFFFFF;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+} 
+
+.selected {
+	font-weight:bold; 
+	list-style-image:url(bullet_go.png)
+} 
+.luiTitle {
+	font-size:160%; 
+	text-shadow:#888 1px 1px 1px;
+	border:1px solid #aa9; 
+	background-color:#D6DED4;
+	padding:0.2em;
+	-moz-border-radius: 5px;
+ 	-webkit-border-radius: 5px;
+	} 
+
+</style>
+<script type="text/javascript" src="assets/js/jquery-1.3.1.min.js"></script>
+<script type="text/javascript">
+
+$('document').ready(function(){
+	var count = 0; 
+	$('#questions').hide(); 
+	$('#answers').hide(); 
+	$('#questions tr:nth-child(2)').attr('id','currow'); 	
+	var q1 = $('#currow td:nth-child(2)').html();
+	var q3 = '<div id="d' + count + '"><p>' + q1 + '</p>' ; 
+	var a1 =  $('#currow td:nth-child(3)').html();
+	var r1 = q3 + a1 +'</div>';
+	$('#showquestion').html(r1);
+	
+	$('li').live('click',function(){
+		$(this).addClass('selected').siblings().removeClass('selected'); 
+		var target = $(this).attr('id');
+		var parid = $(this).parent().parent().attr('id');
+		var parnum = parseInt(parid.slice(1,3)); 
+		count = count + 1;
+		var ps = $('#showquestion div').length; 
+		$('#showquestion div').each(function() { 
+			var divid = $(this).attr('id'); 
+			var divnum = parseInt(divid.slice(1,3));
+			if(divnum > parnum) 
+				$(this).remove()
+			}) 
+		$('td' ).each(function(){
+			var qnum = $(this).text(); 
+			if(qnum == target) {
+				var q = $(this).next('td').html();
+				var q2 = '<div  id="d' + count + ' "><p>' + q + '</p>'; 
+				var a = $(this).next('td').next('td').html();
+				var qs = $('#showquestion').html();
+				var r = qs + q2 + a +'</div>'; 
+				$('#showquestion').html(r);
+				window.scrollBy(0,400); 
+				}
+			})
+		})
+	})
+
+
+
+</script>
+
+
+
+</head>
+
+<body>
+
+<div id="showquestion" class="answers"></div>
+
+
+<table width="100%" border="0" cellspacing="1" cellpadding="2" id="questions" >
+  <tr>
+    <td>No</td>
+    <td>Question/Heading </td>
+    <td>Answers </td>
+  </tr>
+  <tr>
+    <td>1</td><!--each td number corresponds to the preceeding number 
+    in the order of selection-->
+     <td>Troubleshooting Section</td>
+    <td><ul>
+      <li id="Net1">Networking</li>
+      <li id="Hardware-1">Hardware</li>
+      <li id="software">Software</li>
+      <li id="8">Don't Know</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Hardware-1</td>
+    <td>Is your computer an Apple or a Dell</td>
+    <td><ul>
+      <li id="Hardware1-1">Dell</li>
+      <li id="Hardware1-2">Apple</li>
+    </ul></td>
+  </tr>
+  <tr>
+	<td>Hardware1-2</td>
+    <td>Does the computer start up?</td>
+    <td><ul>
+      <li id="Hardware3-1">Yes</li>
+      <li id="Hardware3-2">No</li>
+    </ul></td>
+  </tr>
+	<td>Hardware1-1</td>
+    <td>Does the computer start up?</td>
+    <td><ul>
+      <li id="Hardware4-1">Yes</li>
+      <li id="Hardware4-2">No</li>
+    </ul></td>
+  </tr>
+	<td>Hardware3-1</td>
+    <td>Is the computer overheating</td>
+    <td><ul>
+      <li id="Hardware5-1">Yes</li>
+      <li id="Hardware5-2">No</li>
+    </ul></td>
+  </tr>
+	<td>Hardware4-1</td>
+    <td>Is the computer overheating</td>
+    <td><ul>
+      <li id="Hardware6-1">Yes</li>
+      <li id="Hardware6-2">No</li>
+    </ul></td>
+	</tr>
+	<td>Hardware3-2</td>
+    <td>Does the Screen Show up?</td>
+    <td><ul>
+      <li id="Hardware7-1">Yes</li>
+      <li id="Hardware7-2">No</li>
+    </ul></td>
+	</tr>
+	<td>Hardware3-2</td>
+    <td>Does the Screen Show up?</td>
+    <td><ul>
+      <li id="Hardware8-1">Yes</li>
+      <li id="Hardware8-2">No</li>
+    </ul></td>
+	
+  </tr>
+
+ 
+  <tr>
+    <td>8</td>
+    <td>Unknown </td>
+    <td><a href="http://www.jmu.edu/computing/helpdesk/" target="_blank">helpdesk</a>  </td>
+    <td><a href="http://www.google.com" target="_blank">google</a>  </td>
+     <td><a href=" http://www.ehow.com/about_6690466_computer-diagnostics.html" target="_blank">reference</a>  </td>
+   
+  </tr>
+ <tr>
+    <td>Net1</td>
+    <td>Who makes your operating system?</td>
+    <td><ul>
+      <li id="Net2-1">Apple</li>
+      <li id="Net2-2">Windows</li>
+     </ul></td>
+  </tr>
+  <tr>
+    <td>Net2-1</td>
+    <td>Run the network diagnostic tool.  This is found by going to System, Preferences, Nework, Assist Me, Diagnostics</td>
+    <td><ul>
+      <li id="Net2-1-1"><a href = "index.html">Yes!</a></li>
+      <li id="Net3">Nope</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net2-2</td>
+    <td>Run the Network Troubleshooter.  Did this fix your problem</td>
+    <td><ul>
+      <li id="Net2-2-1"><a href = "index.html">Yes!</a></li>
+      <li id="Net3">Nope</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net3</td>
+    <td>Turn the WiFi button/ability off and then on.  Did this enable your WiFi capabilities?</td>
+    <td><ul>
+      <li id="Net3-1">My WiFi is not turning on</li>
+      <li id="Net4">My WiFi is turned on, but I still cannot connect to the internet</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net3-1</td>
+    <td>Can you connect an Ethernet cable to your computer to access the internet?</td>
+    <td><ul>
+      <li id="Net3-1-1">Yes</li>
+      <li id="Net3-1-2">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net3-1-1</td>
+    <td>Do other computers connect to the internet?</td>
+    <td><ul>
+      <li id="Net3-1-1-1">Yes</li>
+      <li id="Net3-1-1-2">No</li>
+       </ul></td>
+  </tr>
+  <tr>
+    <td>Net3-1-1-1</td>
+    <td>Your computer's network card is probably broken</td>
+    <td><ul>
+      <li>Have a professional look at it at the <a href = "http://www.jmu.edu/computing/helpdesk/">JMU Help Desk</a></li>
+    </ul></td>
+  </tr>
+
+  <tr>
+    <td>Net3-1-1-2</td>
+    <td>The network is probably experiencing problems</td>
+    <td><ul>
+      <li"><a href = "decisiontree.html">Click here after the network has been fixed</a></li>
+    </ul></td>
+  </tr>
+  
+  <tr>
+    <td>Net3-1-2</td>
+    <td>Your computer is experiencing some serious problems</td>
+    <td><ul>
+      <li>Have a professional look at it at the <a href = "http://www.jmu.edu/computing/helpdesk/">JMU Help Desk</a></li>
+	</ul></td>
+  </tr>
+  <tr>
+    <td>Net4</td>
+    <td>Is the desired network showing up on the list of available networks?</td>
+    <td><ul>
+      <li id="Net5">Yes</li>
+      <li id="Net4-1">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net4-1</td>
+    <td>Are you close to the router/hotspot?</td>
+    <td><ul>
+      <li id="4-1-1">Yes</li>
+      <li id="4-1-2">No</li>
+    </ul></td>
+  </tr>  
+  <tr>
+    <td>4-1-1</td>
+    <td>The cause of your problem is unknown</td>
+    <td><ul>
+	  <li>There may be sort of interference preventing connection</li>
+      <li>The router or network may be experiencing problems</li>
+      <li>Try connecting after the problem has been fixed</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>4-1-2</td>
+    <td>Try getting closer to the router or hotspot.</td>
+    <td><ul>
+      <li>Try connecting after the problem has been fixed</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net5</td>
+    <td>Make sure you have access to the desired network.  Does the network accept your e-ID password</td>
+    <td><ul>
+      <li id="Net6">Yes</li>
+      <li id="Net5-1">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net5-1</td>
+    <td>Have you recently changed your password?</td>
+    <td><ul>
+      <li id="Net5-1-1">Yes</li>
+      <li id="Net5-1-2">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net5-1-1</td>
+    <td>The password database may not have updated yet.</td>
+    <td><ul>
+      <li>Try to connect again in a few minutes, otherwise contact the <a href = "http://www.jmu.edu/computing/helpdesk/">JMU Help Desk</a></li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net5-1-2</td>
+    <td>Contact the <a href = "http://www.jmu.edu/computing/helpdesk/">JMU Help Desk</a> for more information</td>
+    <td><ul>
+      <li><a href = "http://www.jmu.edu/computing/helpdesk/">http://www.jmu.edu/computing/helpdesk/</a></li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net6</td>
+    <td>Try to access other websites.  Can you connect to any other websites?</td>
+    <td><ul>
+      <li id="Net7">Yes</li>
+      <li id="Net6-1">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net6-1</td>
+    <td>The website you are trying to access may be done</td>
+    <td><ul>
+      <li>Give it some time and try again later</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net7</td>
+    <td>Does your computer want to update itself?</td>
+    <td><ul>
+      <li id="Net7-1">Yes</li>
+      <li id="Net8">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net7-1</td>
+    <td>Some of the updates may be conflicting with your wireless capabilities</td>
+    <td><ul>
+      <li>Update computer and try again later</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net8</td>
+    <td>Do you have anti-virus software installed on the computer</td>
+    <td><ul>
+      <li id="Net8-1">Yes</li>
+      <li id="Net9">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net8-1</td>
+    <td>There may be a confict with the antivirus firewall</td>
+    <td><ul>
+      <li>Add an exception for the browser or website</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net9</td>
+    <td>Can other computers access the internet on the same network?</td>
+    <td><ul>
+      <li id="Net10">Yes</li>
+      <li id="Net9-1">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net9-1</td>
+    <td>The network is probaly experiencing difficulties</td>
+    <td><ul>
+      <li>Contact the <a href = "http://www.jmu.edu/computing/helpdesk/">http://www.jmu.edu/computing/helpdesk</a> or try again later</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net10</td>
+    <td>Remove the network from the list and re-add it.</br>Make sure your DHCP setting is ON</br>Set your FTP to allow anonymous connections</br>Do you consider yourself computer capable?</td>
+    <td><ul>
+      <li id="Net10-1">Yes</li>
+      <li id="Net11">No</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net10-1</td>
+    <td>Consider these options</td>
+    <td><ul>
+	  <li>Reinstall your wireless adapter software</li>
+      <li>Perform a system restore if you can</li>
+      <li>Otherwise, contact the <a href = "http://www.jmu.edu/computing/helpdesk/">JMU Help Desk</a></li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>Net11</td>
+    <td>Contact the <a href = "http://www.jmu.edu/computing/helpdesk/">JMU Help Desk/</a></td>
+    <td><ul>
+      <li><a href = "http://www.jmu.edu/computing/helpdesk/">http://www.jmu.edu/computing/helpdesk</a></li>
+    </ul></td>
+  </tr>
+  <tr>
+		<td>software</td>
+		<td>What type of software are you having issues with?</td>
+		<td><ul>
+			<li id="software-1">Communication software</li>
+			<li id="software-2">Word processor</li>
+			<li id="software-3">Presentation</li>
+			<li id="software-4">Data management</li>
+			<li id="software-5">Internet browser</li>
+			<li id="software-6">Media player</li>
+			<li id="software-7">Operating system software</li>
+			<li id="software-8">Other</li>			
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1</td>
+		<td>What program are you having issues with?</td>
+		<td><ul>
+			<li id="software-11">Skype</li>
+			<li id="software-12">Outlook</li>
+			<li id="software-13">Other</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-11</td>
+			<td>Is Skype up-to-date?</td>
+		<td><ul>
+			<li id="software-111">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-112"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-111</td>
+		<td>Do you have the correct version of Skype for your operating system?</td>
+		<td><ul>
+			<li id="software-1111">Yes, I have ther correct version of Skype</li>
+			<li id="software-1112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1111</td>
+		<td>Is Skype using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-11111">Yes, the file Skype is using is the correct format and is in the correct location</li>
+			<li id="software-11112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-11111</td>
+		<td>Do you have enough memory to run Skype?</td>
+		<td><ul>
+			<li id="software-111111">Yes, there is plenty of memory</li>
+			<li id="software-111112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-111111</td>
+		<td>Try restarting Skype</td>
+		<td><ul>
+			<li id="software-1111111">There is still an issue</li>
+			<li id="software-1111112"><a href = "index.html">I restarted Skype and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1111111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-11111111">There is still an issue</li>
+			<li id="software-11111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-11111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-111111111">There is still an issue</li>
+			<li id="software-111111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-111111111</td>
+		<td>Try reinstalling Skype</td>
+		<td><ul>
+			<li id="software-1111111111">There is still an issue</li>
+			<li id="software-1111111112"><a href = "index.html">I reinstalled Skype and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-1111111111</td>
+		<td>Try restoring your system to a previous point when Skype was working correctly</td>
+		<td><ul>
+			<li id="software-11111111111"><a href = "https://support.skype.com/en/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-12</td>
+			<td>Is Outlook up-to-date?</td>
+		<td><ul>
+			<li id="software-121">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-122"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-121</td>
+		<td>Do you have the correct version of Outlook for your operating system?</td>
+		<td><ul>
+			<li id="software-1211">Yes, I have ther correct version of Outlook</li>
+			<li id="software-1212"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1211</td>
+		<td>Is Outlook using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-12111">Yes, the file Outlook is using is the correct format and is in the correct location</li>
+			<li id="software-12112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-12111</td>
+		<td>Do you have enough memory to run Outlook?</td>
+		<td><ul>
+			<li id="software-121111">Yes, there is plenty of memory</li>
+			<li id="software-121112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-121111</td>
+		<td>Try restarting Outlook</td>
+		<td><ul>
+			<li id="software-1211111">There is still an issue</li>
+			<li id="software-1211112"><a href = "index.html">I restarted Outlook and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1211111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-12111111">There is still an issue</li>
+			<li id="software-12111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-12111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-121111111">There is still an issue</li>
+			<li id="software-121111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-121111111</td>
+		<td>Try reinstalling Outlook</td>
+		<td><ul>
+			<li id="software-1211111111">There is still an issue</li>
+			<li id="software-1211111112"><a href = "index.html">I reinstalled Outlook and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-1211111111</td>
+		<td>Try restoring your system to a previous point when Outlook was working correctly</td>
+		<td><ul>
+			<li id="software-12111111111"><a href = "http://support.microsoft.com/ph/928">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-13</td>
+			<td>Is the software up-to-date?</td>
+		<td><ul>
+			<li id="software-131">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-132"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-131</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-1311">Yes, I have ther correct version of the software</li>
+			<li id="software-1312"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1311</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-13111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-13112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-13111</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-131111">Yes, there is plenty of memory</li>
+			<li id="software-131112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-131111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-1311111">There is still an issue</li>
+			<li id="software-1311112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-1311111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-13111111">There is still an issue</li>
+			<li id="software-13111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-13111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-131111111">There is still an issue</li>
+			<li id="software-131111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-131111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-1311111111">There is still an issue</li>
+			<li id="software-1311111112"><a href = "index.html">I reinstalled the software and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-1311111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-13111111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2</td>
+		<td>What program are you having issues with?</td>
+		<td><ul>
+			<li id="software-21">MS Word</li>
+			<li id="software-22">Open Office Writer</li>
+			<li id="software-23">Libre Writer</li>
+			<li id="software-24">Other</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-21</td>
+			<td>Is MS Word up-to-date?</td>
+		<td><ul>
+			<li id="software-211">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-212"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-211</td>
+		<td>Do you have the correct version of MS Word for your operating system?</td>
+		<td><ul>
+			<li id="software-2111">Yes, I have ther correct version of MS Word</li>
+			<li id="software-2112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2111</td>
+		<td>Is MS Word using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-21111">Yes, the file MS Word is using is the correct format and is in the correct location</li>
+			<li id="software-21112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-21111</td>
+		<td>Do you have enough memory to run MS Word?</td>
+		<td><ul>
+			<li id="software-211111">Yes, there is plenty of memory</li>
+			<li id="software-211112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-211111</td>
+		<td>Try restarting MS Word</td>
+		<td><ul>
+			<li id="software-2111111">There is still an issue</li>
+			<li id="software-2111112"><a href = "index.html">I restarted MS Word and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2111111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-21111111">There is still an issue</li>
+			<li id="software-21111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-21111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-211111111">There is still an issue</li>
+			<li id="software-211111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-211111111</td>
+		<td>Try reinstalling MS Word</td>
+		<td><ul>
+			<li id="software-2111111111">There is still an issue</li>
+			<li id="software-2111111112"><a href = "index.html">I reinstalled MS Word and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-2111111111</td>
+		<td>Try restoring your system to a previous point when MS Word was working correctly</td>
+		<td><ul>
+			<li id="software-21111111111"><a href = "http://support.microsoft.com/ph/939">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-22</td>
+			<td>Is Open Office Writer up-to-date?</td>
+		<td><ul>
+			<li id="software-221">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-222"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-221</td>
+		<td>Do you have the correct version of Open Office Writer for your operating system?</td>
+		<td><ul>
+			<li id="software-2211">Yes, I have ther correct version of Open Office Writer</li>
+			<li id="software-2212"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2211</td>
+		<td>Is Open Office Writer using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-22111">Yes, the file Open Office Writer is using is the correct format and is in the correct location</li>
+			<li id="software-22112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-22111</td>
+		<td>Do you have enough memory to run Open Office Writer?</td>
+		<td><ul>
+			<li id="software-221111">Yes, there is plenty of memory</li>
+			<li id="software-221112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-221111</td>
+		<td>Try restarting Open Office Writer</td>
+		<td><ul>
+			<li id="software-2211111">There is still an issue</li>
+			<li id="software-2211112"><a href = "index.html">I restarted Open Office Writer and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2211111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-22111111">There is still an issue</li>
+			<li id="software-22111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-22111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-221111111">There is still an issue</li>
+			<li id="software-221111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-221111111</td>
+		<td>Try reinstalling Open Office Writer</td>
+		<td><ul>
+			<li id="software-2211111111">There is still an issue</li>
+			<li id="software-2211111112"><a href = "index.html">I reinstalled Open Office Writer and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-2211111111</td>
+		<td>Try restoring your system to a previous point when Open Office Writer was working correctly</td>
+		<td><ul>
+			<li id="software-22111111111"><a href = "http://www.openoffice.org/support/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-23</td>
+			<td>Is Libre Writer up-to-date?</td>
+		<td><ul>
+			<li id="software-231">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-232"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-231</td>
+		<td>Do you have the correct version of Libre Writer for your operating system?</td>
+		<td><ul>
+			<li id="software-2311">Yes, I have ther correct version of Libre Writer</li>
+			<li id="software-2312"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2311</td>
+		<td>Is Libre Writer using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-23111">Yes, the file Libre Writer is using is the correct format and is in the correct location</li>
+			<li id="software-23112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-23111</td>
+		<td>Do you have enough memory to run Libre Writer?</td>
+		<td><ul>
+			<li id="software-231111">Yes, there is plenty of memory</li>
+			<li id="software-231112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-231111</td>
+		<td>Try restarting Libre Writer</td>
+		<td><ul>
+			<li id="software-2311111">There is still an issue</li>
+			<li id="software-2311112"><a href = "index.html">I restarted Libre Writer and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2311111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-23111111">There is still an issue</li>
+			<li id="software-23111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-23111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-231111111">There is still an issue</li>
+			<li id="software-231111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-231111111</td>
+		<td>Try reinstalling Libre Writer</td>
+		<td><ul>
+			<li id="software-2311111111">There is still an issue</li>
+			<li id="software-2311111112"><a href = "index.html">I reinstalled Libre Writer and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-2311111111</td>
+		<td>Try restoring your system to a previous point when Libre Writer was working correctly</td>
+		<td><ul>
+			<li id="software-23111111111"><a href = "http://help.libreoffice.org/Writer/Welcome_to_the_Writer_Help">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-24</td>
+			<td>Is the software up-to-date?</td>
+		<td><ul>
+			<li id="software-241">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-242"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-241</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-2411">Yes, I have ther correct version of the software</li>
+			<li id="software-2412"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2411</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-24111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-24112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-24111</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-241111">Yes, there is plenty of memory</li>
+			<li id="software-241112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-241111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-2411111">There is still an issue</li>
+			<li id="software-2411112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-2411111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-24111111">There is still an issue</li>
+			<li id="software-24111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-24111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-241111111">There is still an issue</li>
+			<li id="software-241111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-241111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-2411111111">There is still an issue</li>
+			<li id="software-2411111112"><a href = "index.html">I reinstalled the software and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-2411111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-24111111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-3</td>
+		<td>What program are you having issues with?</td>
+		<td><ul>
+			<li id="software-31">MS Powerpoint</li>
+			<li id="software-32">Other</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-31</td>
+			<td>Is MS Powerpoint up-to-date?</td>
+		<td><ul>
+			<li id="software-311">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-312"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-311</td>
+		<td>Do you have the correct version of MS Powerpoint for your operating system?</td>
+		<td><ul>
+			<li id="software-3111">Yes, I have ther correct version of MS Powerpoint</li>
+			<li id="software-3112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-3111</td>
+		<td>Is MS Powerpoint using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-31111">Yes, the file MS Powerpoint is using is the correct format and is in the correct location</li>
+			<li id="software-31112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-31111</td>
+		<td>Do you have enough memory to run MS Powerpoint?</td>
+		<td><ul>
+			<li id="software-311111">Yes, there is plenty of memory</li>
+			<li id="software-311112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-311111</td>
+		<td>Try restarting MS Powerpoint</td>
+		<td><ul>
+			<li id="software-3111111">There is still an issue</li>
+			<li id="software-3111112"><a href = "index.html">I restarted MS Powerpoint and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-3111111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-31111111">There is still an issue</li>
+			<li id="software-31111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-31111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-311111111">There is still an issue</li>
+			<li id="software-311111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-311111111</td>
+		<td>Try reinstalling MS Powerpoint</td>
+		<td><ul>
+			<li id="software-3111111111">There is still an issue</li>
+			<li id="software-3111111112"><a href = "index.html">I reinstalled MS Powerpoint and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-3111111111</td>
+		<td>Try restoring your system to a previous point when MS Powerpoint was working correctly</td>
+		<td><ul>
+			<li id="software-31111111111"><a href = "http://support.microsoft.com/ph/929">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-32</td>
+			<td>Is the software up-to-date?</td>
+		<td><ul>
+			<li id="software-321">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-322"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-321</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-3211">Yes, I have ther correct version of the software</li>
+			<li id="software-3212"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-3211</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-32111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-32112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-32111</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-321111">Yes, there is plenty of memory</li>
+			<li id="software-321112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-321111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-3211111">There is still an issue</li>
+			<li id="software-3211112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-3211111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-32111111">There is still an issue</li>
+			<li id="software-32111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-32111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-321111111">There is still an issue</li>
+			<li id="software-321111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-321111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-3211111111">There is still an issue</li>
+			<li id="software-3211111112"><a href = "index.html">I reinstalled the software and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-3211111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-32111111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4</td>
+		<td>What program are you having issues with?</td>
+		<td><ul>
+			<li id="software-41">MS Excel</li>
+			<li id="software-42">MS Access</li>
+			<li id="software-43">Other</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-41</td>
+			<td>Is MS Excel up-to-date?</td>
+		<td><ul>
+			<li id="software-411">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-412"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-411</td>
+		<td>Do you have the correct version of MS Excel for your operating system?</td>
+		<td><ul>
+			<li id="software-4111">Yes, I have ther correct version of MS Excel</li>
+			<li id="software-4112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4111</td>
+		<td>Is MS Excel using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-41111">Yes, the file MS Excel is using is the correct format and is in the correct location</li>
+			<li id="software-41112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-41111</td>
+		<td>Do you have enough memory to run MS Excel?</td>
+		<td><ul>
+			<li id="software-411111">Yes, there is plenty of memory</li>
+			<li id="software-411112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-411111</td>
+		<td>Try restarting MS Excel</td>
+		<td><ul>
+			<li id="software-4111111">There is still an issue</li>
+			<li id="software-4111112"><a href = "index.html">I restarted MS Excel and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4111111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-41111111">There is still an issue</li>
+			<li id="software-41111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-41111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-411111111">There is still an issue</li>
+			<li id="software-411111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-411111111</td>
+		<td>Try reinstalling MS Excel</td>
+		<td><ul>
+			<li id="software-4111111111">There is still an issue</li>
+			<li id="software-4111111112"><a href = "index.html">I reinstalled MS Excel and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-4111111111</td>
+		<td>Try restoring your system to a previous point when MS Excel was working correctly</td>
+		<td><ul>
+			<li id="software-41111111111"><a href = "http://support.microsoft.com/ph/918">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-42</td>
+			<td>Is MS Access up-to-date?</td>
+		<td><ul>
+			<li id="software-421">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-422"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-421</td>
+		<td>Do you have the correct version of MS Access for your operating system?</td>
+		<td><ul>
+			<li id="software-4211">Yes, I have ther correct version of MS Access</li>
+			<li id="software-4212"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4211</td>
+		<td>Is MS Access using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-42111">Yes, the file MS Access is using is the correct format and is in the correct location</li>
+			<li id="software-42112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-42111</td>
+		<td>Do you have enough memory to run MS Access?</td>
+		<td><ul>
+			<li id="software-421111">Yes, there is plenty of memory</li>
+			<li id="software-421112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-421111</td>
+		<td>Try restarting MS Access</td>
+		<td><ul>
+			<li id="software-4211111">There is still an issue</li>
+			<li id="software-4211112"><a href = "index.html">I restarted MS Access and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4211111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-42111111">There is still an issue</li>
+			<li id="software-42111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-42111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-421111111">There is still an issue</li>
+			<li id="software-421111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-421111111</td>
+		<td>Try reinstalling MS Access</td>
+		<td><ul>
+			<li id="software-4211111111">There is still an issue</li>
+			<li id="software-4211111112"><a href = "index.html">I reinstalled MS Access and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-4211111111</td>
+		<td>Try restoring your system to a previous point when MS Access was working correctly</td>
+		<td><ul>
+			<li id="software-42111111111"><a href = "http://support.microsoft.com/ph/915">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-43</td>
+			<td>Is the software up-to-date?</td>
+		<td><ul>
+			<li id="software-431">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-432"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-431</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-4311">Yes, I have ther correct version of the software</li>
+			<li id="software-4312"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4311</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-43111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-43112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-43111</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-431111">Yes, there is plenty of memory</li>
+			<li id="software-431112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-431111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-4311111">There is still an issue</li>
+			<li id="software-4311112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-4311111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-43111111">There is still an issue</li>
+			<li id="software-43111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-43111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-431111111">There is still an issue</li>
+			<li id="software-431111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-431111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-4311111111">There is still an issue</li>
+			<li id="software-4311111112"><a href = "index.html">I reinstalled the software and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-4311111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-43111111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5</td>
+		<td>What program are you having issues with?</td>
+		<td><ul>
+			<li id="software-51">Chrome</li>
+			<li id="software-52">Firefox</li>
+			<li id="software-53">Opera</li>
+			<li id="software-54">Internet Explorer</li>
+			<li id="software-55">Dolphin</li>
+			<li id="software-56">Other</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-51</td>
+			<td>Is Chrome up-to-date?</td>
+		<td><ul>
+			<li id="software-511">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-512"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-511</td>
+		<td>Do you have the correct version of Chrome for your operating system?</td>
+		<td><ul>
+			<li id="software-5111">Yes, I have ther correct version of Chrome</li>
+			<li id="software-5112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5111</td>
+		<td>Is Chrome using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-51111">Yes, the file Chrome is using is the correct format and is in the correct location</li>
+			<li id="software-51112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-51111</td>
+		<td>Do you have enough memory to run Chrome?</td>
+		<td><ul>
+			<li id="software-511111">Yes, there is plenty of memory</li>
+			<li id="software-511112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-511111</td>
+		<td>Try restarting Chrome</td>
+		<td><ul>
+			<li id="software-5111111">There is still an issue</li>
+			<li id="software-5111112"><a href = "index.html">I restarted Chrome and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5111111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-51111111">There is still an issue</li>
+			<li id="software-51111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-51111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-511111111">There is still an issue</li>
+			<li id="software-511111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-511111111</td>
+		<td>Try reinstalling Chrome</td>
+		<td><ul>
+			<li id="software-5111111111">There is still an issue</li>
+			<li id="software-5111111112"><a href = "index.html">I reinstalled Chrome and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-5111111111</td>
+		<td>Try restoring your system to a previous point when Chrome was working correctly</td>
+		<td><ul>
+			<li id="software-51111111111"><a href = "http://support.google.com/chrome/?hl=en">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-52</td>
+			<td>Is Firefox up-to-date?</td>
+		<td><ul>
+			<li id="software-521">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-522"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-521</td>
+		<td>Do you have the correct version of Firefox for your operating system?</td>
+		<td><ul>
+			<li id="software-5211">Yes, I have ther correct version of Firefox</li>
+			<li id="software-5212"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5211</td>
+		<td>Is Firefox using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-52111">Yes, the file Firefox is using is the correct format and is in the correct location</li>
+			<li id="software-52112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-52111</td>
+		<td>Do you have enough memory to run Firefox?</td>
+		<td><ul>
+			<li id="software-521111">Yes, there is plenty of memory</li>
+			<li id="software-521112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-521111</td>
+		<td>Try restarting Firefox</td>
+		<td><ul>
+			<li id="software-5211111">There is still an issue</li>
+			<li id="software-5211112"><a href = "index.html">I restarted Firefox and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5211111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-52111111">There is still an issue</li>
+			<li id="software-52111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-52111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-521111111">There is still an issue</li>
+			<li id="software-521111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-521111111</td>
+		<td>Try reinstalling Firefox</td>
+		<td><ul>
+			<li id="software-5211111111">There is still an issue</li>
+			<li id="software-5211111112"><a href = "index.html">I reinstalled Firefox and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-5211111111</td>
+		<td>Try restoring your system to a previous point when Firefox was working correctly</td>
+		<td><ul>
+			<li id="software-52111111111"><a href = "http://support.mozilla.org/en-US/home">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-53</td>
+			<td>Is Opera up-to-date?</td>
+		<td><ul>
+			<li id="software-531">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-532"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-531</td>
+		<td>Do you have the correct version of Opera for your operating system?</td>
+		<td><ul>
+			<li id="software-5311">Yes, I have ther correct version of Opera</li>
+			<li id="software-5312"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5311</td>
+		<td>Is Opera using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-53111">Yes, the file Opera is using is the correct format and is in the correct location</li>
+			<li id="software-53112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-53111</td>
+		<td>Do you have enough memory to run Opera?</td>
+		<td><ul>
+			<li id="software-531111">Yes, there is plenty of memory</li>
+			<li id="software-531112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-531111</td>
+		<td>Try restarting Opera</td>
+		<td><ul>
+			<li id="software-5311111">There is still an issue</li>
+			<li id="software-5311112"><a href = "index.html">I restarted Opera and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5311111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-53111111">There is still an issue</li>
+			<li id="software-53111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-53111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-531111111">There is still an issue</li>
+			<li id="software-531111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-531111111</td>
+		<td>Try reinstalling Opera</td>
+		<td><ul>
+			<li id="software-5311111111">There is still an issue</li>
+			<li id="software-5311111112"><a href = "index.html">I reinstalled Opera and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-5311111111</td>
+		<td>Try restoring your system to a previous point when Opera was working correctly</td>
+		<td><ul>
+			<li id="software-53111111111"><a href = "http://www.opera.com/support/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-54</td>
+			<td>Is Internet Explorer up-to-date?</td>
+		<td><ul>
+			<li id="software-541">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-542"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-541</td>
+		<td>Do you have the correct version of Internet Explorer for your operating system?</td>
+		<td><ul>
+			<li id="software-5411">Yes, I have ther correct version of Internet Explorer</li>
+			<li id="software-5412"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5411</td>
+		<td>Is Internet Explorer using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-54111">Yes, the file Internet Explorer is using is the correct format and is in the correct location</li>
+			<li id="software-54112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-54111</td>
+		<td>Do you have enough memory to run Internet Explorer?</td>
+		<td><ul>
+			<li id="software-541111">Yes, there is plenty of memory</li>
+			<li id="software-541112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-541111</td>
+		<td>Try restarting Internet Explorer</td>
+		<td><ul>
+			<li id="software-5411111">There is still an issue</li>
+			<li id="software-5411112"><a href = "index.html">I restarted Internet Explorer and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5411111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-54111111">There is still an issue</li>
+			<li id="software-54111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-54111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-541111111">There is still an issue</li>
+			<li id="software-541111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-541111111</td>
+		<td>Try reinstalling Internet Explorer</td>
+		<td><ul>
+			<li id="software-5411111111">There is still an issue</li>
+			<li id="software-5411111112"><a href = "index.html">I reinstalled Internet Explorer and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-5411111111</td>
+		<td>Try restoring your system to a previous point when Internet Explorer was working correctly</td>
+		<td><ul>
+			<li id="software-54111111111"><a href = "http://support.microsoft.com/ph/807">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-55</td>
+			<td>Is Dolphin up-to-date?</td>
+		<td><ul>
+			<li id="software-551">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-552"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-551</td>
+		<td>Do you have the correct version of Dolphin for your operating system?</td>
+		<td><ul>
+			<li id="software-5511">Yes, I have ther correct version of Dolphin</li>
+			<li id="software-5512"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5511</td>
+		<td>Is Dolphin using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-55111">Yes, the file Dolphin is using is the correct format and is in the correct location</li>
+			<li id="software-55112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-55111</td>
+		<td>Do you have enough memory to run Dolphin?</td>
+		<td><ul>
+			<li id="software-551111">Yes, there is plenty of memory</li>
+			<li id="software-551112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-551111</td>
+		<td>Try restarting Dolphin</td>
+		<td><ul>
+			<li id="software-5511111">There is still an issue</li>
+			<li id="software-5511112"><a href = "index.html">I restarted Dolphin and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5511111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-55111111">There is still an issue</li>
+			<li id="software-55111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-55111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-551111111">There is still an issue</li>
+			<li id="software-551111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-551111111</td>
+		<td>Try reinstalling Dolphin</td>
+		<td><ul>
+			<li id="software-5511111111">There is still an issue</li>
+			<li id="software-5511111112"><a href = "index.html">I reinstalled Dolphin and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-5511111111</td>
+		<td>Try restoring your system to a previous point when Dolphin was working correctly</td>
+		<td><ul>
+			<li id="software-55111111111"><a href = "http://dolphin-browser.com/support/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-56</td>
+			<td>Is the software up-to-date?</td>
+		<td><ul>
+			<li id="software-561">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-562"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-561</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-5611">Yes, I have ther correct version of the software</li>
+			<li id="software-5612"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5611</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-56111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-56112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-56111</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-561111">Yes, there is plenty of memory</li>
+			<li id="software-561112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-561111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-5611111">There is still an issue</li>
+			<li id="software-5611112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-5611111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-56111111">There is still an issue</li>
+			<li id="software-56111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-56111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-561111111">There is still an issue</li>
+			<li id="software-561111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-561111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-5611111111">There is still an issue</li>
+			<li id="software-5611111112"><a href = "index.html">I reinstalled the software and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-5611111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-56111111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6</td>
+		<td>What program are you having issues with?</td>
+		<td><ul>
+			<li id="software-61">VLC</li>
+			<li id="software-62">Itunes</li>
+			<li id="software-63">Windows Media Player</li>
+			<li id="software-64">Real Player</li>
+			<li id="software-65">Quicktime Player</li>
+			<li id="software-66">XBMC</li>
+			<li id="software-67">Other</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-61</td>
+			<td>Is VLC up-to-date?</td>
+		<td><ul>
+			<li id="software-611">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-612"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-611</td>
+		<td>Do you have the correct version of VLC for your operating system?</td>
+		<td><ul>
+			<li id="software-6111">Yes, I have ther correct version of VLC</li>
+			<li id="software-6112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6111</td>
+		<td>Is VLC using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-61111">Yes, the file VLC is using is the correct format and is in the correct location</li>
+			<li id="software-61112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-61111</td>
+		<td>Do you have enough memory to run VLC?</td>
+		<td><ul>
+			<li id="software-611111">Yes, there is plenty of memory</li>
+			<li id="software-611112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-611111</td>
+		<td>Try restarting VLC</td>
+		<td><ul>
+			<li id="software-6111111">There is still an issue</li>
+			<li id="software-6111112"><a href = "index.html">I restarted VLC and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6111111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-61111111">There is still an issue</li>
+			<li id="software-61111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-61111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-611111111">There is still an issue</li>
+			<li id="software-611111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-611111111</td>
+		<td>Try reinstalling VLC</td>
+		<td><ul>
+			<li id="software-6111111111">There is still an issue</li>
+			<li id="software-6111111112"><a href = "index.html">I reinstalled VLC and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6111111111</td>
+		<td>Try restoring your system to a previous point when VLC was working correctly</td>
+		<td><ul>
+			<li id="software-61111111111"><a href = "http://www.videolan.org/support/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-62</td>
+			<td>Is Itunes up-to-date?</td>
+		<td><ul>
+			<li id="software-621">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-622"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-621</td>
+		<td>Do you have the correct version of Itunes for your operating system?</td>
+		<td><ul>
+			<li id="software-6211">Yes, I have ther correct version of Itunes</li>
+			<li id="software-6212"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6211</td>
+		<td>Is Itunes using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-62111">Yes, the file Itunes is using is the correct format and is in the correct location</li>
+			<li id="software-62112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-62111</td>
+		<td>Do you have enough memory to run Itunes?</td>
+		<td><ul>
+			<li id="software-621111">Yes, there is plenty of memory</li>
+			<li id="software-621112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-621111</td>
+		<td>Try restarting Itunes</td>
+		<td><ul>
+			<li id="software-6211111">There is still an issue</li>
+			<li id="software-6211112"><a href = "index.html">I restarted Itunes and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6211111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-62111111">There is still an issue</li>
+			<li id="software-62111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-62111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-621111111">There is still an issue</li>
+			<li id="software-621111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-621111111</td>
+		<td>Try reinstalling Itunes</td>
+		<td><ul>
+			<li id="software-6211111111">There is still an issue</li>
+			<li id="software-6211111112"><a href = "index.html">I reinstalled Itunes and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6211111111</td>
+		<td>Try restoring your system to a previous point when Itunes was working correctly</td>
+		<td><ul>
+			<li id="software-62111111111"><a href = "https://www.apple.com/support/itunes/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-63</td>
+			<td>Is Windows Media Player up-to-date?</td>
+		<td><ul>
+			<li id="software-631">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-632"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-631</td>
+		<td>Do you have the correct version of Windows Media Player for your operating system?</td>
+		<td><ul>
+			<li id="software-6311">Yes, I have ther correct version of Windows Media Player</li>
+			<li id="software-6312"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6311</td>
+		<td>Is Windows Media Player using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-63111">Yes, the file Windows Media Player is using is the correct format and is in the correct location</li>
+			<li id="software-63112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-63111</td>
+		<td>Do you have enough memory to run Windows Media Player?</td>
+		<td><ul>
+			<li id="software-631111">Yes, there is plenty of memory</li>
+			<li id="software-631112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-631111</td>
+		<td>Try restarting Windows Media Player</td>
+		<td><ul>
+			<li id="software-6311111">There is still an issue</li>
+			<li id="software-6311112"><a href = "index.html">I restarted Windows Media Player and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6311111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-63111111">There is still an issue</li>
+			<li id="software-63111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-63111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-631111111">There is still an issue</li>
+			<li id="software-631111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-631111111</td>
+		<td>Try reinstalling Windows Media Player</td>
+		<td><ul>
+			<li id="software-6311111111">There is still an issue</li>
+			<li id="software-6311111112"><a href = "index.html">I reinstalled Windows Media Player and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6311111111</td>
+		<td>Try restoring your system to a previous point when Windows Media Player was working correctly</td>
+		<td><ul>
+			<li id="software-63111111111"><a href = "https://www.apple.com/support/itunes/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-64</td>
+			<td>Is Real Player up-to-date?</td>
+		<td><ul>
+			<li id="software-641">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-642"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-641</td>
+		<td>Do you have the correct version of Real Player for your operating system?</td>
+		<td><ul>
+			<li id="software-6411">Yes, I have ther correct version of Real Player</li>
+			<li id="software-6412"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6411</td>
+		<td>Is Real Player using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-64111">Yes, the file Real Player is using is the correct format and is in the correct location</li>
+			<li id="software-64112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-64111</td>
+		<td>Do you have enough memory to run Real Player?</td>
+		<td><ul>
+			<li id="software-641111">Yes, there is plenty of memory</li>
+			<li id="software-641112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-641111</td>
+		<td>Try restarting Real Player</td>
+		<td><ul>
+			<li id="software-6411111">There is still an issue</li>
+			<li id="software-6411112"><a href = "index.html">I restarted Real Player and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6411111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-64111111">There is still an issue</li>
+			<li id="software-64111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-64111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-641111111">There is still an issue</li>
+			<li id="software-641111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-641111111</td>
+		<td>Try reinstalling Real Player</td>
+		<td><ul>
+			<li id="software-6411111111">There is still an issue</li>
+			<li id="software-6411111112"><a href = "index.html">I reinstalled Real Player and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6411111111</td>
+		<td>Try restoring your system to a previous point when Real Player was working correctly</td>
+		<td><ul>
+			<li id="software-64111111111"><a href = "http://www.real.com/support">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-65</td>
+			<td>Is Quicktime Player up-to-date?</td>
+		<td><ul>
+			<li id="software-651">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-652"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-651</td>
+		<td>Do you have the correct version of Quicktime Player for your operating system?</td>
+		<td><ul>
+			<li id="software-6511">Yes, I have ther correct version of Quicktime Player</li>
+			<li id="software-6512"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6511</td>
+		<td>Is Quicktime Player using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-65111">Yes, the file Quicktime Player is using is the correct format and is in the correct location</li>
+			<li id="software-65112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-65111</td>
+		<td>Do you have enough memory to run Quicktime Player?</td>
+		<td><ul>
+			<li id="software-651111">Yes, there is plenty of memory</li>
+			<li id="software-651112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-651111</td>
+		<td>Try restarting Quicktime Player</td>
+		<td><ul>
+			<li id="software-6511111">There is still an issue</li>
+			<li id="software-6511112"><a href = "index.html">I restarted Quicktime Player and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6511111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-65111111">There is still an issue</li>
+			<li id="software-65111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-65111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-651111111">There is still an issue</li>
+			<li id="software-651111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-651111111</td>
+		<td>Try reinstalling Quicktime Player</td>
+		<td><ul>
+			<li id="software-6511111111">There is still an issue</li>
+			<li id="software-6511111112"><a href = "index.html">I reinstalled Quicktime Player and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6511111111</td>
+		<td>Try restoring your system to a previous point when Quicktime Player was working correctly</td>
+		<td><ul>
+			<li id="software-65111111111"><a href = "http://www.apple.com/support/quicktime/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-66</td>
+			<td>Is XBMC up-to-date?</td>
+		<td><ul>
+			<li id="software-661">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-662"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-661</td>
+		<td>Do you have the correct version of XBMC for your operating system?</td>
+		<td><ul>
+			<li id="software-6611">Yes, I have ther correct version of XBMC</li>
+			<li id="software-6612"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6611</td>
+		<td>Is XBMC using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-66111">Yes, the file XBMC is using is the correct format and is in the correct location</li>
+			<li id="software-66112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-66111</td>
+		<td>Do you have enough memory to run XBMC?</td>
+		<td><ul>
+			<li id="software-661111">Yes, there is plenty of memory</li>
+			<li id="software-661112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-661111</td>
+		<td>Try restarting XBMC</td>
+		<td><ul>
+			<li id="software-6611111">There is still an issue</li>
+			<li id="software-6611112"><a href = "index.html">I restarted XBMC and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6611111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-66111111">There is still an issue</li>
+			<li id="software-66111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-66111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-661111111">There is still an issue</li>
+			<li id="software-661111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-661111111</td>
+		<td>Try reinstalling XBMC</td>
+		<td><ul>
+			<li id="software-6611111111">There is still an issue</li>
+			<li id="software-6611111112"><a href = "index.html">I reinstalled XBMC and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6611111111</td>
+		<td>Try restoring your system to a previous point when XBMC was working correctly</td>
+		<td><ul>
+			<li id="software-66111111111"><a href = "http://xbmc.org/support/">If there still is an issue, contact customer support</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-67</td>
+			<td>Is the software up-to-date?</td>
+		<td><ul>
+			<li id="software-671">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-672"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-671</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-6711">Yes, I have ther correct version of the software</li>
+			<li id="software-6712"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6711</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-67111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-67112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-67111</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-671111">Yes, there is plenty of memory</li>
+			<li id="software-671112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-671111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-6711111">There is still an issue</li>
+			<li id="software-6711112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-6711111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-67111111">There is still an issue</li>
+			<li id="software-67111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-67111111</td>
+		<td>Try running a anit-virus software</td>
+		<td><ul>
+			<li id="software-671111111">There is still an issue</li>
+			<li id="software-671111112"><a href = "index.html">I ran a anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-671111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-6711111111">There is still an issue</li>
+			<li id="software-6711111112"><a href = "index.html">I reinstalled the software and it fixed the issue</a></li>
+			</ul></td>
+	</tr>
+	<tr>
+		<td>software-6711111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-67111111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-7</td>
+		<td>Is your operating system up-to-date?</td>
+		<td><ul>
+			<li id="software-71">Yes, all updates are installed and there is still an issue</li>
+			<li id="software-72"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-71</td>
+		<td>Try running the anit-virus software</td>
+		<td><ul>
+			<li id="software-711">There is still an issue</li>
+			<li id="software-712"><a href = "index.html">I ran the anti-virus software and it fixed the issue</a></li>
+
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-711</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-7111">There is still an issue</li>
+			<li id="software-7112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-7111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-71111">If there still is an issue, contact customer support</li>
+			<li id="software-71112"><a href = "index.html">I restored the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-8</td>
+			<td>Is your operating system up-to-date?</td>
+		<td><ul>
+			<li id="software-81">Yes, all updates are installed and there still is an issue</li>
+			<li id="software-82"><a href = "index.html">I installed the updates and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-81</td>
+		<td>Try running the anit-virus software</td>
+		<td><ul>
+			<li id="software-811">There is still an issue</li>
+			<li id="software-812"><a href = "index.html">I ran the anti-virus software and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-811</td>
+		<td>Do you have enough memory to run the necessary software?</td>
+		<td><ul>
+			<li id="software-8111">Yes, there is plenty of memory</li>
+			<li id="software-8112"><a href = "index.html">I freed up some memory and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-8111</td>
+		<td>Do you have the correct version of the software for your operating system?</td>
+		<td><ul>
+			<li id="software-8111">Yes, I have ther correct version of the software</li>
+			<li id="software-8112"><a href = "index.html">I installed the correct version and this fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-8111</td>
+		<td>Is the software using a file? And if so is the file the correct format and in the correct location?</td>
+		<td><ul>
+			<li id="software-81111">Yes, the file the software is using is the correct format and is in the correct location</li>
+			<li id="software-81112"><a href = "index.html">This fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-81111</td>
+		<td>Try restarting the program</td>
+		<td><ul>
+			<li id="software-811111">There is still an issue</li>
+			<li id="software-811112"><a href = "index.html">I restarted the program and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-811111</td>
+		<td>Try restarting your system</td>
+		<td><ul>
+			<li id="software-8111111">There is still an issue</li>
+			<li id="software-8111112"><a href = "index.html">I restarted the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-8111111</td>
+		<td>Try reinstalling the software</td>
+		<td><ul>
+			<li id="software-81111111">If there still is an issue, contact customer support</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>software-81111111</td>
+		<td>Try restoring your system to a previous point when your system was working correctly</td>
+		<td><ul>
+			<li id="software-811111111">There is still an issue</li>
+			<li id="software-811111112"><a href = "index.html">I restored the system and it fixed the issue</a></li>
+		</ul></td>
+	</tr>
+</table>
+            </div><!--/span-->
+            
+      </div><!--/row-->
+
+	<footer>
+		<div class="span12">
+			<hr>
+			<p>&copy; James Madison University Internal Use Only 2012</p>
+		</div>
+	</footer>
+	
+	<!-- load le scripts last for speeeeeed!! -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+  </body>
+</html>

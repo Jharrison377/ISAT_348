@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<title>CampusNet Staff - Resources & Tools</title>
+    	<!-- loading le css -->
+    	<link href="assets/css/bootstrap.css" rel="stylesheet">
+    	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  	</head>
+
+  	<body>
+  		<!-- NAVBAR  -->
+    	<div class="navbar">
+      		<div class="navbar-inner">
+        		<div class="container-fluid">
+          			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+          			</a>
+          			<a class="brand" href="index.html">CampusNet Staff</a>
+          			<div class="nav-collapse collapse">
+            			<p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Username</a></p>
+            			<ul class="nav">
+            				
+              				<li><a href="about.html">About</a></li>
+              				<li><a href="contact.html">Contact</a></li>
+              				<li><a href="resources.html">Resources & Tools</a></li>
+        					<li><a href="glossary.html">Glossary</a></li>
+          					<li><a href="office.html">Office Procedures</a></li>
+          					<li class="active"><a href="diagnostics.html">Diagnostics</a></li>
+            			</ul>
+          			</div>
+        		</div><!--/container-->
+      		</div>
+		</div>
+		<!-- MAIN -->
+        </div><!--/span-->
+       
+          <div class="hero-unit">
+			<h2> </h2>
+			<style type="text/css">
+.container {
+	border:1px solid #ccc; 
+	background-color:#FFFFFF; 
+	padding:0.5em;
+	margin-top:1em;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+}
+
+#question {
+	margin:0.3em 0 0.3em; 
+	font-family:Verdana, Geneva, sans-serif; 
+	font-size:110%; 
+} 
+
+.answers {
+	margin:0.5em 0 0.5em 1em; 
+	font-family:Verdana, Geneva, sans-serif; 
+}
+li {
+	padding:0.2em;
+	list-style-image:url(bullet_orange.png)
+} 
+li:hover {
+	cursor:pointer; 
+	background-color:#006;
+	color:#eee; 
+} 
+
+#showquestion p {
+	font-weight:bold;
+	margin-top:0px; 
+} 
+
+#showquestion div {
+	margin:0.5em; 
+	padding:0.5em; 
+	border:1px solid #aaa; 
+	background-color:#FFFFFF;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+} 
+
+.selected {
+	font-weight:bold; 
+	list-style-image:url(bullet_go.png)
+} 
+.luiTitle {
+	font-size:160%; 
+	text-shadow:#888 1px 1px 1px;
+	border:1px solid #aa9; 
+	background-color:#D6DED4;
+	padding:0.2em;
+	-moz-border-radius: 5px;
+ 	-webkit-border-radius: 5px;
+	} 
+
+</style>
+<script type="text/javascript" src="assets/js/jquery-1.3.1.min.js"></script>
+<script type="text/javascript">
+
+$('document').ready(function(){
+	var count = 0; 
+	$('#questions').hide(); 
+	$('#answers').hide(); 
+	$('#questions tr:nth-child(2)').attr('id','currow'); 	
+	var q1 = $('#currow td:nth-child(2)').html();
+	var q3 = '<div id="d' + count + '"><p>' + q1 + '</p>' ; 
+	var a1 =  $('#currow td:nth-child(3)').html();
+	var r1 = q3 + a1 +'</div>';
+	$('#showquestion').html(r1);
+	
+	$('li').live('click',function(){
+		$(this).addClass('selected').siblings().removeClass('selected'); 
+		var target = $(this).attr('id');
+		var parid = $(this).parent().parent().attr('id');
+		var parnum = parseInt(parid.slice(1,3)); 
+		count = count + 1;
+		var ps = $('#showquestion div').length; 
+		$('#showquestion div').each(function() { 
+			var divid = $(this).attr('id'); 
+			var divnum = parseInt(divid.slice(1,3));
+			if(divnum > parnum) 
+				$(this).remove()
+			}) 
+		$('td' ).each(function(){
+			var qnum = $(this).text(); 
+			if(qnum == target) {
+				var q = $(this).next('td').html();
+				var q2 = '<div  id="d' + count + ' "><p>' + q + '</p>'; 
+				var a = $(this).next('td').next('td').html();
+				var qs = $('#showquestion').html();
+				var r = qs + q2 + a +'</div>'; 
+				$('#showquestion').html(r);
+				window.scrollBy(0,400); 
+				}
+			})
+		})
+	})
+
+
+
+</script>
+
+
+
+</head>
+
+<body>
+
+<div id="showquestion" class="answers"></div>
+
+
+<table width="100%" border="0" cellspacing="1" cellpadding="2" id="questions" >
+  <tr>
+    <td>No</td>
+    <td>Question/Heading </td>
+    <td>Answers </td>
+  </tr>
+  <tr>
+    <td>1</td><!--each td number corresponds to the preceeding number 
+    in the order of selection-->
+    <td>Troubleshooting Section</td>
+    <td><ul>
+      <li id="2">Networking</li>
+      <li id="3">Hardware</li>
+      <li id="17">Software</li>
+      <li id="8">Don't Know</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Level 2 - from Networking</td>
+    <td><ul>
+      <li id="4">Option 1</li>
+      <li id="5">Option 2</li>
+      <li id="6">Option 3</li>
+      <li id="7">Option 4</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Level 2 - from Hardware</td>
+    <td><ul>
+      <li id="9">One</li>
+      <li id="10">Two</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Level 3 - from level 2 option 1</td>
+    <td><ul>
+      <li id="11">Question 1</li>
+      <li id="12">Question 2</li>
+      <li id="13">Question 3</li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Level 3 -  from level 2 option 2</td>
+    <td>Answer 2 </td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Level 3 - from level 2 option 3</td>
+    <td>Answer 3 </td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Level 3 -   from level 2 option 4</td>
+    <td><p>Answer 4</p></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Level 2 - answer to Question 1 - Don't know. </td>
+    <td>Content can have <a href="http://www.google.com" target="_blank">links</a> to more information. </td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Level 3 - from level 2 - One</td>
+    <td>Answer</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Level 3 - from level 2 - two </td>
+    <td>Answer</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>Level 4 - from level 3 question 1</td>
+    <td><ul>
+      <li id="14">Yes </li>
+      <li id="15">No</li>
+      <li id="16">Not sure </li>
+    </ul></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Level 4 - from level 3 question 2</td>
+    <td>Answer</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Level 4 - from level 3 question 3</td>
+    <td>Answer</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>Level 5 - from level 4 answer yes</td>
+    <td>Answer</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Level 5 - from level 4 answer no</td>
+    <td>Answer</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>Level 5 - from level 4 answer don't know</td>
+    <td>This is blalalalal</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>Level 2-from software</td>
+    <td>Answer</td>
+  </tr>
+</table>
+            </div><!--/span-->
+            
+      </div><!--/row-->
+
+	<footer>
+		<div class="span12">
+			<hr>
+			<p>&copy; James Madison University Internal Use Only 2012</p>
+		</div>
+	</footer>
+	
+	<!-- load le scripts last for speeeeeed!! -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+  </body>
+</html>
